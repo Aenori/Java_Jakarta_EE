@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.PushBuilder;
 
+// C'est mal !!!!!
 @WebServlet("/HelloWorldNoJSP")
 public class HelloWorldNoJSPServlet extends HttpServlet {
 
@@ -20,7 +21,7 @@ public class HelloWorldNoJSPServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException,ServletException {
-        resp.setContentType("text/html");
+        resp.setContentType("text/plain");
         PrintWriter writer = resp.getWriter();
         writer.println(PAGE_HEADER);
 

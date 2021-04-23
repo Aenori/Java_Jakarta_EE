@@ -15,9 +15,14 @@ import jakarta.servlet.http.PushBuilder;
 @WebServlet("/HelloWorldJSP")
 public class HelloWorldJSPServlet extends HttpServlet {
 	@Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException,ServletException {
-		req.setAttribute("name", "Lord Vetinari");
+    protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws IOException,ServletException {
+		String name = "Lord Vetinari";
+		if(request.getAttribute("truc") != null)
+		{
+			name = (String)request.getAttribute("truc");
+		}
+		request.setAttribute("name", name);
 		
-		req.getRequestDispatcher("/jsp/HelloWorldJSP.jsp").forward(req, resp);
+		request.getRequestDispatcher("/jsp/HelloWorldJSP.jsp").forward(request, resp);
 	}
 }

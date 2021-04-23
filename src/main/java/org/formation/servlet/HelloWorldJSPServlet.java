@@ -17,9 +17,9 @@ public class HelloWorldJSPServlet extends HttpServlet {
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws IOException,ServletException {
 		String name = "Lord Vetinari";
-		if(request.getAttribute("truc") != null)
+		if(request.getParameter("truc") != null)
 		{
-			name = (String)request.getAttribute("truc");
+			name = (String)request.getParameter("truc");
 		}
 		request.setAttribute("name", name);
 		

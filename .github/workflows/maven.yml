@@ -34,7 +34,7 @@ jobs:
     - name: Test tomcat
       run: curl http://localhost:8080 1> /dev/null
     - name: Test Bonjour.jsp 
-      run: curl http://localhost:8080/java-web-project/Bonjour.jsp?prenom=John&nom=Snow | grep "<title>Bonjour John Snow</title>"
+      run: curl http://localhost:8080/java-web-project/Bonjour.jsp?prenom=John&nom=Snow | grep "Bonjour John Snow !"
     - name: Shutdown
       run: bash /opt/tomcat/bin/shutdown.sh
 

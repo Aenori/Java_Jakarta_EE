@@ -31,15 +31,10 @@ jobs:
       run: ls /opt/tomcat/webapps && cp target/java-web-project.war /opt/tomcat/webapps/java-web-project.war && ls /opt/tomcat/webapps
     - name: Tomcat startup
       run: ls /opt/tomcat/bin && bash /opt/tomcat/bin/catalina.sh run&
-    - name: Test 1
+    - name: Test tomcat
       run: curl http://localhost:8080 1> /dev/null
-    - name: Test root
-      run: curl http://localhost:8080/java-web-project/ | grep -v "<title>HTTP Status 404 – Not Found</title>"
-    - name: Test 2 root
-      run: curl http://localhost:8080/java-web-project/HelloWorldJSP | grep -v "<title>HTTP Status 404 – Not Found</title>"
-    - name: Test 3 root
-      run: curl http://localhost:8080/java-web-project/HelloWorldNoJSP | grep -v "<title>HTTP Status 404 – Not Found</title>"
-      # - name: Test 4 root
-      # run: curl http://localhost:8080/java-web-project/QuiNExistePas | grep -v "<title>HTTP Status 404 – Not Found</title>"
+    - name: Test Bonjour.jsp 
+      run: curl http://localhost:8080/java-web-project/Bonjour.jsp?prenom=John&nom=Snow | grep "<title>Bonjour John Snow</title>"
     - name: Shutdown
       run: bash /opt/tomcat/bin/shutdown.sh
+

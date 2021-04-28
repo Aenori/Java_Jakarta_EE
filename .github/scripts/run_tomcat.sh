@@ -13,11 +13,13 @@ do
 		break
 	fi
 
-	if [ i -eq 15 ]
+	if ( i == 15 )
 	then
 		echo "ERROR : Tomcat didn't start in 15 seconds"
 		exit 1
 	fi
+
+	sleep 1
 done
 # Check tomcat is running
 curl http://localhost:8080 1> /dev/null

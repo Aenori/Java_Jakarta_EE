@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -e
 
 bash /opt/tomcat/bin/catalina.sh run&
 

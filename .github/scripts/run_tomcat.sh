@@ -3,15 +3,20 @@ set -euxo pipefail
 
 bash /opt/tomcat/bin/catalina.sh run&
 cpt=0
-while [ -z "$(netstat -a | grep 8080)"]
+for i in $(seq 0 15)
 do
-	sleep 1
-	((cpt+=1))
+	tomcat_is_running = $(netstat -a | grep 8080)
+	echo "Test "$tomcat_is_running
 
-	if ((cpt > 15))
+	if [ -n "$tomcat_is_running"]
+	then
+		break
+	fi
+
+	if [i -eq 15]
 	then
 		echo "ERROR : Tomcat didn't start in 15 seconds"
-		exit(1)
+		exit 1
 	fi
 done
 # Check tomcat is running

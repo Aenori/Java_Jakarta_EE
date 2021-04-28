@@ -1,4 +1,5 @@
 FROM openjdk:11
 
 RUN mkdir /tmp/install_script
-ADD .github/scripts/install_tomcat.sh /tmp/install_script
+ADD .github/scripts/install_tomcat.sh /tmp/install_script.sh
+RUN bash /tmp/install_script.sh

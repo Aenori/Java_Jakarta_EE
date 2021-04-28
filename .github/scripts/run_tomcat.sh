@@ -5,12 +5,8 @@ bash /opt/tomcat/bin/catalina.sh run&
 
 for i in $(seq 0 15)
 do
-	if [[ -n "$(netstat -a | grep 8080)" ]]
-	then
-		break
-	fi
-
-	echo $(netstat -a)
+	curl http://localhost:8080 1> /dev/null && break
+	
 	echo "Waiting 1 seconds for Tomcat to start"
 
 	if [ "$i" -eq "15" ]
@@ -22,4 +18,3 @@ do
 	sleep 1
 done
 # Check tomcat is running
-curl http://localhost:8080 1> /dev/null

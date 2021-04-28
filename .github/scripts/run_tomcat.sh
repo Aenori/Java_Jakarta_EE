@@ -10,6 +10,7 @@ do
 		break
 	fi
 
+	echo $(netstat -a)
 	echo "Waiting 1 seconds for Tomcat to start"
 
 	if [ "$i" -eq "15" ]

@@ -29,6 +29,8 @@ jobs:
       run: bash .github/scripts/install_tomcat.sh
     - name: Install war
       run: bash .github/scripts/install_war.sh
+    - name: Test netstat
+      run: netstat -a
     - name: Run Tomcat
       run: bash .github/scripts/run_tomcat.sh      
     - name: Test Bonjour.jsp 

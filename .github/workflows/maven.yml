@@ -27,12 +27,10 @@ jobs:
       run: mvn install
     - name: Tomcat install
       run: bash .github/scripts/install_tomcat.sh
-    - name: Install webapps
-      run: ls /opt/tomcat/webapps && cp target/java-web-project.war /opt/tomcat/webapps/java-web-project.war && ls /opt/tomcat/webapps
-    - name: Tomcat startup
-      run: ls /opt/tomcat/bin && bash /opt/tomcat/bin/catalina.sh run&
-    - name: Test tomcat
-      run: curl http://localhost:8080 1> /dev/null
+    - name: Install war
+      run: bash .github/scripts/install_war.sh
+    - name: Run Tomcat
+      run: bash .github/scripts/run_tomcat.sh      
     - name: Test Bonjour.jsp 
       run: echo $(curl "http://localhost:8080/java-web-project/Bonjour.jsp?prenom=John&nom=Snow") | grep "Bonjour John Snow !"
     - name: Shutdown

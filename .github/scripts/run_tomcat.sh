@@ -1,17 +1,16 @@
 #!/bin/bash
-set -e
+set -euxo pipefail
 
 bash /opt/tomcat/bin/catalina.sh run&
 
 for i in $(seq 0 15)
 do
-	tomcat_is_running=$(netstat -a | grep 8080)
-	echo "Test "$tomcat_is_running
-
-	if [ -n "$tomcat_is_running" ]
+	if [[ -n "$(netstat -a | grep 8080)" ]]
 	then
 		break
 	fi
+
+	echo "Waiting 1 seconds for Tomcat to start"
 
 	if ( i == 15 )
 	then

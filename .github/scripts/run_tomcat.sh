@@ -12,7 +12,7 @@ do
 
 	echo "Waiting 1 seconds for Tomcat to start"
 
-	if ( i == 15 )
+	if [ "$i" -eq "15" ]
 	then
 		echo "ERROR : Tomcat didn't start in 15 seconds"
 		exit 1

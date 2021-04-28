@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euxo pipefail
 
-bash /opt/tomcat/bin/catalina.sh run&
+# bash /opt/tomcat/bin/catalina.sh run&
 
 for i in $(seq 0 15)
 do

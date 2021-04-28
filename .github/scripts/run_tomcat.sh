@@ -2,10 +2,10 @@
 set -euxo pipefail
 
 bash /opt/tomcat/bin/catalina.sh run&
-cpt=0
+
 for i in $(seq 0 15)
 do
-	tomcat_is_running = $(netstat -a | grep 8080)
+	tomcat_is_running=$(netstat -a | grep 8080)
 	echo "Test "$tomcat_is_running
 
 	if [ -n "$tomcat_is_running"]

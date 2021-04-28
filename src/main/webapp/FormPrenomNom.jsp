@@ -7,12 +7,11 @@
     <title>Insert title here</title>
   </head>
   <body>
-<!--  #Correction exercice n 3
-On reste sur un cas simple, on definit donc une jsp sans controlleur.
-A noter que le chemin de l'action est relatif (car il ne commence pas par un
-/). 
+<!--  #Exercice n 2
+On reste sur un cas simple.
+A noter que le chemin de l'action est relatif (car il ne commence pas par un /). 
  -->
-    <form action = "Bonjour.jsp" method = "POST">
+    <form action = "Bonjour" method = "GET">
 	  Prenom: <input type = "text" name = "prenom">
       <br />
       Nom: <input type = "text" name = "nom" />

@@ -13,5 +13,7 @@ then
 	echo "Exercice n 1 : test case 2 OK"
 else
 	echo "Exercice n 1 : test case 2 Failed !"
+	curl 'http://localhost:8080/java-web-project/Bonjour?nom=Vetinari&prenom=Havelock'
+	
 	exit 1
 fi

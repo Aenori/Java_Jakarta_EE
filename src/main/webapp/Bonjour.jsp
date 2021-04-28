@@ -7,7 +7,7 @@
     <title>Bonjour</title>
   </head>
   <body>
-	<%--  #Correction exercice n 1
+	<%--  #Exercice n 1
 Dans un cas très simple comme celui-ci, on peut se passer de définir
 un controleur.
  --%>

@@ -12,10 +12,14 @@ RUN apt-get update && apt-get install -y maven
 # Copy local directory
 RUN mkdir /app
 WORKDIR /app
-ADD src /app/src
+
 ADD pom.xml /app/pom.xml
 
-# Build project
+# Download dependencies before building project
+RUN mvn install
+
+# Build war
+ADD src /app/src
 RUN mvn install
 
 # Add test
@@ -26,4 +30,4 @@ ADD .github/scripts/run_tomcat.sh /app/test_as_shell/run_tomcat.sh
 ADD .github/scripts/install_war.sh install_war.sh
 RUN bash install_war.sh
 
-CMD bash test_as_shell/run_tomcat.sh > /dev/null && bash test_as_shell/test_tp1.sh
+CMD bash /opt/tomcat/bin/catalina.sh run

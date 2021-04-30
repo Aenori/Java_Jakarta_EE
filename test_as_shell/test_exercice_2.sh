@@ -1,6 +1,8 @@
+#!/bin/bash
+set -e
+
 result=$(curl 'http://localhost:8080/java-web-project/FormPrenomNom' 2>/dev/null)
 result_trimmed=$(echo $result | tr -d ' ')
-
 
 if [ -z "$(echo $result_trimmed | grep 'action=\"Bonjour\"')" ]
 then

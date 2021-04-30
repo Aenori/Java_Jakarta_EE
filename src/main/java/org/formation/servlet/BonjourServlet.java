@@ -19,7 +19,10 @@ import jakarta.servlet.http.PushBuilder;
 @WebServlet("/Bonjour")
 public class BonjourServlet extends HttpServlet {
 	@Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws IOException,ServletException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws IOException,ServletException {    	
+		request.setAttribute("prenom", request.getParameter("prenom"));
+		request.setAttribute("nom", request.getParameter("nom"));
+		
 		request.getRequestDispatcher("/Bonjour.jsp").forward(request, resp);
 	}
 }

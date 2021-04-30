@@ -11,8 +11,8 @@
 Dans un cas très simple comme celui-ci, on peut se passer de définir
 un controleur.
  --%>
-	<% String prenom = request.getParameter("prenom"); %>
-	<% String nom = request.getParameter("nom"); %>
+	<% String prenom = (String)request.getAttribute("prenom"); %>
+	<% String nom = (String)request.getAttribute("nom"); %>
 
 	Bonjour <%=prenom%> <%=nom%> !
   </body>

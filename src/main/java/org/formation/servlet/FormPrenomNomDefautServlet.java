@@ -21,16 +21,28 @@ import jakarta.servlet.http.PushBuilder;
 public class FormPrenomNomDefautServlet extends HttpServlet {
 	@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws IOException,ServletException {
-		request.setAttribute("action", "FormPrenomNomDefault");
+		request.setAttribute("action", "");
 		request.setAttribute("method", "POST");
+		
 		request.getRequestDispatcher("/FormPrenomNom.jsp").forward(request, resp);
 	}
 	
 	@Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws IOException,ServletException {
-		Map<String, String[]> paramMap = request.getParameterMap();
+    protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws IOException,ServletException {		
+		setAttributeDefaultValue(request, "prenom", "John");
+		setAttributeDefaultValue(request, "nom", "Doe");
 		
-		request.setAttribute("method", "POST");
 		request.getRequestDispatcher("/Bonjour.jsp").forward(request, resp);
+	}
+
+	private void setAttributeDefaultValue(HttpServletRequest request, String paramName, String defaultValue) {
+		String currentValue = request.getParameter(paramName);
+		
+		if( (currentValue == null) || currentValue.isEmpty())
+		{
+			currentValue = defaultValue;
+		}
+		
+		request.setAttribute(paramName, currentValue);
 	}
 }

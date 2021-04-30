@@ -11,7 +11,8 @@
 On reste sur un cas simple.
 A noter que le chemin de l'action est relatif (car il ne commence pas par un /). 
  -->
-    <form action = "Bonjour" method = "GET">
+    <form action = "<%= request.getAttribute("action") %>" 
+          method = "<%= request.getAttribute("method") %>">
 	  Prenom: <input type = "text" name = "prenom">
       <br />
       Nom: <input type = "text" name = "nom" />

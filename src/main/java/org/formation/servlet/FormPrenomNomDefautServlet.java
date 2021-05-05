@@ -13,9 +13,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.PushBuilder;
 
-/* #Exercice n 2
+/* #Exercice n 3
  * 
- * Ce controlleur sert just à renvoyer le jsp
+ * Ce controlleur gère le formulaire FormPrenomNom avec les deux methodes
+ * HTTP :
+ * 	 - GET pour renvoyer le formulaire au format HTML
+ *   - POST pour recevoir les données du formulaire
  */
 @WebServlet("/FormPrenomNomDefault")
 public class FormPrenomNomDefautServlet extends HttpServlet {

@@ -10,6 +10,5 @@ import org.formation.bean.Formation;
 public class FormationList extends ArrayList<Formation> implements Serializable {
 	public FormationList() {
 		super();
-		add(new Formation());
 	}
 }
